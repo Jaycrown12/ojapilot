@@ -1,5 +1,7 @@
+from pathlib import Path
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from app.api.v1 import api_v1_router
 from app.core.config import settings
@@ -11,6 +13,13 @@ app = FastAPI(
     docs_url="/docs",
     redoc_url="/redoc",
 )
+
+# Ensure static directories exist and mount static files
+STATIC_DIR = Path(__file__).resolve().parent.parent / "static"
+PRODUCT_IMAGES_DIR = STATIC_DIR / "product_images"
+PRODUCT_IMAGES_DIR.mkdir(parents=True, exist_ok=True)
+
+app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
 
 # Configure CORS for frontend access (defaulting to http://localhost:3000)
 app.add_middleware(

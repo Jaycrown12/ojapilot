@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
@@ -18,6 +19,21 @@ export default function HomePage() {
           <p className="text-slate-400 text-base max-w-lg mx-auto">
             AI-first business and inventory copilot architecture initialized for SMEs.
           </p>
+
+          <div className="flex items-center justify-center gap-3 pt-4">
+            <Link
+              href="/login"
+              className="px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold rounded-lg shadow-lg shadow-blue-600/20 transition-colors"
+            >
+              Sign In / Sign Up
+            </Link>
+            <Link
+              href="/dashboard"
+              className="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-lg border border-slate-700 transition-colors"
+            >
+              Go to Dashboard →
+            </Link>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-slate-800 text-center">

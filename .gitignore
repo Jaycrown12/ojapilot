@@ -55,3 +55,8 @@ Thumbs.db
 .turbo/
 .vercel/
 .cache/
+.fallback_data.json
+*.fallback_data.json
+backend/static/product_images/*
+!backend/static/product_images/.gitkeep
+
